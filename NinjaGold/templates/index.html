@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ninja Gold</title>
+        <meta name="Ninja Gold" content="How much gold can you obtain? A clicker game for all the capitalist ninjas in the world!">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    </head>
+    <body>
+        <h1>Ninja Gold</h1>
+        <h2>Your Gold: {{ session['total'] }} gold</h2>
+        <div class="container">
+            <h2>Farm</h2>
+            <h4>(earns 10-20 golds)</h4>
+            <form action="/process_money" method="post">
+              <input type="submit" name="farm" value="Find Gold!"/>
+            </form>
+            <div id="toolbar-container" style="cursor: pointer; position: absolute; top: 301px; right: 35px; padding: 0px 3px; background: rgba(224, 224, 224, 0.2); box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 0px 0px; color: rgb(187, 187, 187); border-radius: 0.5em; font-size: 0.8em;"><span id="toolbar"></span></div>
+        </div>
+        <div class="container">
+            <h2>Cave</h2>
+            <h4>(earns 5-10 golds)</h4>
+            <form action="/process_money" method="post">
+              <input type="submit" name="cave" value="Find Gold!"/>
+            </form>
+            <div id="toolbar-container" style="cursor: pointer; position: absolute; top: 301px; right: 35px; padding: 0px 3px; background: rgba(224, 224, 224, 0.2); box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 0px 0px; color: rgb(187, 187, 187); border-radius: 0.5em; font-size: 0.8em;"><span id="toolbar"></span></div>
+        </div>
+        <div class="container">
+            <h2>House</h2>
+            <h4>(earns 2-5 golds)</h4>
+            <form action="/process_money" method="post">
+              <input type="submit" name="house" value="Find Gold!"/>
+            </form>
+            <div id="toolbar-container" style="cursor: pointer; position: absolute; top: 301px; right: 35px; padding: 0px 3px; background: rgba(224, 224, 224, 0.2); box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 0px 0px; color: rgb(187, 187, 187); border-radius: 0.5em; font-size: 0.8em;"><span id="toolbar"></span></div>
+        </div>
+        <div class="container">
+            <h2>Casino</h2>
+            <h4>(earns/takes 0-50 golds)</h4>
+            <form action="/process_money" method="post">
+              <input type="submit" name="casino" value="Find Gold!"/>
+            </form>
+            <div id="toolbar-container" style="cursor: pointer; position: absolute; top: 301px; right: 35px; padding: 0px 3px; background: rgba(224, 224, 224, 0.2); box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 0px 0px; color: rgb(187, 187, 187); border-radius: 0.5em; font-size: 0.8em;"><span id="toolbar"></span></div>
+        </div>
+        <div id="activities">
+            <h3>Activities:</h3>
+            <form action="/process_money" method="post">
+                <textarea name="activities" rows="10" cols="143">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}</textarea>
+            </form>
+        <a href="/reset"><button type="button" name="button">Reset</button></a>
+        </div>
+    </body>
+</html>

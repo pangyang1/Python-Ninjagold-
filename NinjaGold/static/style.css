@@ -1,0 +1,21 @@
+.container{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: text-top;
+    display: inline-block;
+    margin: 10px;
+}
+h2, h4{
+    display: block;
+    vertical-align: text-top;
+}
+#activities{
+    margin: 10px;
+}
+h1{
+    text-align: center;
+    background-color: gold;
+    width: 890px;
+}
